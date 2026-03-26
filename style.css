@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Arial', sans-serif; color: #333; overflow-x: hidden; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -86,3 +92,154 @@ body { font-family: 'Arial', sans-serif; color: #333; overflow-x: hidden; }
 .social-icons { display: flex; gap: 10px; }
 .social-icons a { width: 30px; height: 30px; border: 1px solid #5A8C44; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #5A8C44; text-decoration: none; font-size: 14px; }
 .footer-bottom { background-color: #324950; padding: 15px 0; text-align: center; color: white; font-size: 11px; }
+
+/* =========================================================
+   ДОДАТКОВІ СТИЛІ ДЛЯ СТОРІНКИ ТОМАТІВ
+   ========================================================= */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Arial', sans-serif; color: #333; line-height: 1.4; }
+.container { max-width: 1152px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.header { background: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 85px; }
+
+.header-right-wrapper { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.search-bar { border-bottom: 1px solid #4A5D23; display: flex; align-items: center; padding: 2px; }
+.search-bar input { border: none; outline: none; width: 130px; text-align: right; font-size: 13px; color: #4A5D23; }
+.search-bar i { color: #4A5D23; font-size: 12px; margin-left: 5px; }
+
+.nav ul { display: flex; list-style: none; gap: 20px; }
+.nav a { text-decoration: none; color: #4A5D23; font-weight: bold; font-size: 13px; }
+
+/* MAIN CONTENT */
+.tomato-page-wrapper { background-color: #FCF4F4; padding-bottom: 80px; }
+.banner-wrapper img { width: 100%; display: block; max-height: 500px; object-fit: cover; }
+
+.intro-section { margin-top: 50px; }
+.page-title { font-size: 30px; color: #2D3F45; margin-bottom: 5px; font-weight: normal; }
+.stars-divider-small img { height: 8px; margin-bottom: 25px; display: block; }
+.intro-text p { font-size: 14px; color: #4A5D23; margin-bottom: 18px; }
+
+/* БІЛА ПІДКЛАДКА 1 в 1 */
+.segments-white-box {
+    background: #ffffff;
+    border: 1px solid #E0E0E0;
+    display: flex;
+    padding: 45px 0;
+    margin: 40px 0;
+}
+.segment-item { 
+    flex: 1; 
+    padding: 0 40px; 
+    position: relative;
+}
+/* Вертикальні лінії розділювачі */
+.segment-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: #eee;
+}
+
+.segment-item h3 { 
+    font-size: 15px; color: #2D3F45; font-weight: bold; 
+    border-top: 2.5px solid #2D3F45; padding-top: 15px; margin-bottom: 15px; 
+    min-height: 50px;
+    line-height: 1.2;
+}
+.segment-item p { font-size: 13px; color: #333; line-height: 1.5; }
+
+/* ЦИТАТА З ЛІНІЄЮ */
+.red-accent-quote { border-left: 3.5px solid #D86C70; padding-left: 20px; margin: 35px 0; }
+.red-accent-quote p { font-weight: bold; color: #2D3F45; font-size: 14px; }
+
+/* СІТКА ТОВАРІВ */
+.products-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    margin-top: 50px; 
+}
+.product-card img { width: 100%; display: block; }
+
+/* FOOTER */
+/* Обнуление для футера, чтобы не было белых полос по бокам */
+.footer {
+    width: 100%;
+    font-family: Arial, sans-serif; /* Подставьте нужный шрифт */
+}
+
+.footer-top { 
+    background-color: #2D3F45; /* Цвет из Figma */
+    padding: 20px 0; 
+}
+
+.footer-top-flex { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px; /* Или ширина вашего контента */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-nav a { 
+    color: #FFFFFF; 
+    text-decoration: none; 
+    margin-right: 20px; 
+    font-size: 11px; 
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.footer-nav a:hover {
+    color: #7FA45A;
+}
+
+.social-icons { 
+    display: flex; 
+    gap: 8px; 
+}
+
+.social-icons a { 
+    width: 28px; 
+    height: 28px; 
+    border: 1px solid #7FA45A; /* Цвет Buttons из Figma */
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: #7FA45A; 
+    text-decoration: none; 
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #7FA45A;
+    color: #2D3F45;
+}
+
+.footer-bottom { 
+    background-color: #4A5E64; /* Чуть светлее, как на макете */
+    padding: 15px 0; 
+    text-align: center; 
+    color: #FFFFFF; 
+    font-size: 10px; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+/* Адаптивність для планшетів */
+@media (max-width: 992px) {
+    .segments-white-box { flex-direction: column; padding: 20px 0; }
+    .segment-item { padding: 20px 40px; }
+    .segment-item:not(:last-child)::after { display: none; }
+    .segment-item:not(:last-child) { border-bottom: 1px solid #eee; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
