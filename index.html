@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agridera Seeds & Agriculture</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <section class="hero" style="background-image: url('hero-bg.jpg');">
+        <header class="header">
+            <div class="container header-flex">
+                <div class="logo"><img src="logo.png" alt="Agridera"></div>
+                <div class="header-right">
+                <div class="menu-toggle" id="mobile-menu">
+                     <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav" id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Company Profile</a></li>
+                    <li><a href="tomato.html">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">R&D</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                </nav>
+            </div>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="hero-content">
+            <h1>Agridera Seeds and Agriculture Ltd</h1>
+            <a href="#" class="btn-read-more">READ MORE</a>
+        </div>
+    </section>
+
+    <section class="product-bar">
+        <div class="container bar-flex">
+            <img src="i1.png" alt="Wheat">
+            <img src="i2.png" alt="Watermelon">
+            <img src="i3.png" alt="Clover">
+            <img src="i4.png" alt="Sunflower">
+            <img src="i5.png" alt="Tomato">
+            <img src="i6_double.png" alt="More products" class="img-double">
+        </div>
+    </section>
+
+    <section class="vision-mission">
+        <div class="union-bg-image">
+            <img src="bg-union.png" alt="">
+        </div>
+        <div class="container relative-z">
+            <div class="info-row">
+                <div class="info-text">
+                    <h2>Vision</h2>
+                    <div class="stars-decor"><img src="stars.png" alt=""></div>
+                    <p>We believe in long-term growth with an emphasis on the potential of emerging markets. We also support the global need of feeding the growing population.</p>
+                </div>
+                <div class="info-img"><img src="v-img.png" alt="Vision"></div>
+            </div>
+
+            <div class="info-row reverse">
+                <div class="info-text">
+                    <h2>Mission</h2>
+                    <div class="stars-decor"><img src="stars.png" alt=""></div>
+                    <p>Breeding and marketing seeds for advanced field crops and vegetable varieties that provide an added value to all supply chain partners.</p>
+                </div>
+                <div class="info-img video-container">
+                    <img src="m-img.png" alt="Mission">
+                    <img src="play-btn.png" alt="Play" class="play-icon-overlay">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities">
+        <div class="activities-rect-bg">
+            <img src="bg-activities.png" alt="">
+        </div>
+        <div class="container relative-z">
+            <h2 class="section-title">Agridera's main activities</h2>
+            
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="img-wrapper"><img src="a1.png" alt=""></div>
+                    <h3>Open field crop seeds</h3>
+                    <div class="green-line-small"></div>
+                    <p>wheat, cotton, legumes, hybrid confection sunflower</p>
+                </div>
+                <div class="activity-card">
+                    <div class="img-wrapper tomato-wrapper">
+                        <div class="small-stars"><img src="stars.png" alt=""></div>
+                        <a href="tomato.html">
+                            <img src="beet1.png" alt="Tomato">
+                        </a>
+                    </div>
+                    <h3>Vegetable seeds</h3>
+                    <div class="green-line-small"></div>
+                    <p>hybrid open field tomatoes, eggplant, onion, paprika, etc.</p>
+                </div>
+                <div class="activity-card">
+                    <div class="img-wrapper"><img src="a3.png" alt=""></div>
+                    <h3>Ornamental seeds</h3>
+                    <div class="green-line-small"></div>
+                    <p>hybrid cut sunflowers, hybrid patio tomatoes, Bells of Irland, etc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="container footer-top-flex">
+                <nav class="footer-nav">
+                    <a href="index.html">HOME</a><a href="#">PROFILE</a><a href="#">MANAGEMENT</a><a href="tomato.html">PRODUCTS</a>
+                    <a href="#">R&D</a><a href="#">LINKS</a><a href="#">SITEMAP</a><a href="contact.html">CONTACT</a>
+                </nav>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container"><p>AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p></div>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

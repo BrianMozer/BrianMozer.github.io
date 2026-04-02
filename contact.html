@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Agridera</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="main.js" defer></script>
+</head>
+<body class="contact-page-body">
+
+  <header class="header">
+    <div class="container header-flex">
+      <div class="logo"><img src="logo.png" alt="Agridera"></div>
+      <div class="header-right">
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav" id="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Company Profile</a></li>
+            <li><a href="tomato.html">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">R&D</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="search-bar">
+          <input type="text" placeholder="Search">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- wrap the main content with Vue app -->
+  <div id="app">
+    <section class="main-banner">
+      <img src="contact-field-banner.jpg" alt="Field Banner">
+    </section>
+
+    <main class="contact-main-section">
+      <div class="container">
+        <div class="contact-header-left">
+          <h1 class="contact-title-main">Contact Us</h1>
+          <div class="stars-decor">
+            <img src="stars.png" alt="stars">
+          </div>
+        </div>
+
+        <!-- CART TABLE (displayed only if cart has items) -->
+        <div v-if="cart.length > 0" class="cart-table-wrapper">
+          <h2>Your selected products</h2>
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Short description</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in cart" :key="item.id">
+                <td><img :src="item.image" :alt="item.title" width="50"></td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.short_text }}</td>
+                <td><button @click="removeFromCart(item.id)" class="remove-btn">✖</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- FORM or ORDER SUMMARY -->
+        <div v-if="!orderSubmitted">
+          <form @submit.prevent="makeOrder" class="contact-grid-form">
+            <div class="left-col">
+              <div class="form-item-clean">
+                <label>Name *</label>
+                <input type="text" v-model="contactFields.name" required>
+              </div>
+              <div class="form-item-clean">
+                <label>Company Name</label>
+                <input type="text" v-model="contactFields.company">
+              </div>
+              <div class="form-item-clean">
+                <label>Position</label>
+                <input type="text" v-model="contactFields.position">
+              </div>
+              <div class="form-item-clean">
+                <label>City</label>
+                <input type="text" v-model="contactFields.city">
+              </div>
+              <div class="form-item-clean">
+                <label>Country</label>
+                <input type="text" v-model="contactFields.country">
+              </div>
+              <div class="form-item-clean">
+                <label>Telephone</label>
+                <input type="tel" v-model="contactFields.telephone">
+              </div>
+              <div class="form-item-clean">
+                <label>Email *</label>
+                <input type="email" v-model="contactFields.email" required>
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="form-item-clean">
+                <label>You are a</label>
+                <select v-model="contactFields.user_type">
+                  <option value="seed_producer">seed producer</option>
+                </select>
+              </div>
+              <div class="form-item-clean">
+                <label>If other, please specify</label>
+                <input type="text" v-model="contactFields.other_spec" class="input-350">
+              </div>
+              <div class="form-item-clean">
+                <label>You are interested in</label>
+                <textarea v-model="contactFields.interest" class="textarea-large"></textarea>
+              </div>
+              <div class="captcha-and-submit">
+                <label>Please type the code *</label>
+                <div class="captcha-submit-group">
+                  <img src="kapcha.png" alt="Captcha Code" class="captcha-img">
+                  <input type="text" v-model="contactFields.captcha" required class="captcha-input-small">
+                  <button type="submit" class="btn-submit-green">SEND MESSAGE</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- ORDER SUMMARY (shown after successful submission) -->
+        <div v-else class="order-summary">
+          <h3>Thank you for your order!</h3>
+          <p><strong>Name:</strong> {{ contactFields.name }}</p>
+          <p><strong>Email:</strong> {{ contactFields.email }}</p>
+          <p><strong>Company:</strong> {{ contactFields.company }}</p>
+          <p><strong>Position:</strong> {{ contactFields.position }}</p>
+          <p><strong>City:</strong> {{ contactFields.city }}</p>
+          <p><strong>Country:</strong> {{ contactFields.country }}</p>
+          <p><strong>Telephone:</strong> {{ contactFields.telephone }}</p>
+          <p><strong>You are a:</strong> {{ contactFields.user_type }}</p>
+          <p><strong>Other specification:</strong> {{ contactFields.other_spec }}</p>
+          <p><strong>Interest:</strong> {{ contactFields.interest }}</p>
+          <p><strong>Captcha code:</strong> {{ contactFields.captcha }}</p>
+        </div>
+
+      </div>
+    </main>
+
+    <section class="white-address-block">
+      <div class="container">
+        <h2>Our Address</h2>
+        <div class="green-line"></div>
+        <p>Agridera Seeds & Agriculture Ltd.</p>
+        <p>P.O. Box 103, Gedera 70750, Israel</p>
+        <p>Telephone: <span class="highlight-green">+972 8 944 9222</span></p>
+      </div>
+    </section>
+  </div> <!-- end #app -->
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container footer-top-flex">
+        <nav class="footer-nav">
+          <a href="index.html">HOME</a>
+          <a href="#">PROFILE</a>
+          <a href="#">MANAGEMENT</a>
+          <a href="tomato.html">PRODUCTS</a>
+          <a href="#">R & D</a>
+          <a href="#">LINKS</a>
+          <a href="#">SITEMAP</a>
+          <a href="contact.html">CONTACT</a>
+        </nav>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>AGRIDERA SEEDS & AGRICULTURE LTD. © 2023</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
